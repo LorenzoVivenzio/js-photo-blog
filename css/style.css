@@ -46,12 +46,10 @@ main {
 
 .col {
     width: 30%;
-    border: 1px solid black;
 }
 
 .card {
     padding: 10px;
-    height: 100%;
     background-color: white;
     position: relative;
 }
@@ -59,12 +57,15 @@ main {
 .pin-img {
     position: absolute;
     top: -17px;
-    right: 39%;
+    right: 41%;
 }
 
-/* .post-image {
-padding: 10px;
+.post-image {
+height: 400px;
+}
+.post-image img{
+    height: 80%;
 }
 .descrition{
     padding: 10px;
-} */
+} 
