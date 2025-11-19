@@ -4,6 +4,9 @@ const postImg = document.querySelector(".post-image")
 const dateELem = document.querySelector(".date");
 const descrElem = document.querySelector(".descrition");
 const rowElem = document.querySelector(".row");
+const alertElem = document.querySelector(".alert-background")
+
+
 // console.log(container, cardElem, postImg, dateELem, descrElem)
 
 axios
@@ -16,6 +19,7 @@ axios
     postsApi.forEach(function(post){
 
         const {title, url, date} = post;
+
 
         const printPosts = document.createElement("div")
         printPosts.classList.add("col-sm-12", "col-md-6", "col-lg-4" ,"pb-3")
@@ -34,7 +38,12 @@ axios
         </div>`
 
         rowElem.appendChild(printPosts)
-                
+        
+   
     })
-    
+        rowElem.addEventListener("click", function(){
+            
+            alertElem.classList.remove("d-none")
+    }) 
+
 })
