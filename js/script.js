@@ -75,7 +75,7 @@ intervalId = setInterval(function () {
         progressBar.style.width = progress + "%";
         progressBar.innerHTML = progress;
     }
-    console.log(progress)
+    
 }, 100);
 
 

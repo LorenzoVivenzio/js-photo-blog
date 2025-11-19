@@ -31,13 +31,19 @@ body {
     display: flex;
 }
 [class ^= col-]:hover{
-    transform: rotate(20deg);
+    cursor: pointer;
+    z-index: 1;
+
 }
 
 .card {
     padding: 10px;
     background-color: white;
     position: relative;
+}
+.card:hover {
+     box-shadow: 10px 10px grey;
+     transform: rotate(10deg);
 }
 
 .pin-img {
