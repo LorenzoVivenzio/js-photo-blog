@@ -64,3 +64,34 @@ body {
 .text-family{
     font-family: "Edu Tas Beginner", sans-serif;
 }
+
+.alert-background{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.764);
+    position: absolute;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert-image{
+    height: 400px;
+    width: 400px;
+    background-color: black;
+    position: fixed;
+    z-index: 2;
+}
+.close{
+    color: white;
+    background-color: red;
+    border: red;
+    padding: 10px;
+    position: absolute;
+    top: 0px;
+    right:0px;
+}
