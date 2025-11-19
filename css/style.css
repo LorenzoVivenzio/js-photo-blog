@@ -17,7 +17,6 @@ body {
     background-image: url(../img/wall.png);
     height: 200px;
     width: 100%;
-    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,7 +55,7 @@ body {
 } 
 .date{
     padding-top: 20px;
-    font-family:  "Sometype Mono", monospace;
+    font-family: "Sometype Mono", monospace;
 }
 .text-gray{
     color: lightgray;
@@ -68,7 +67,7 @@ body {
 .alert-background{
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.764);
+    background-color: rgba(0, 0, 0, 0.589);
     position: absolute;
     top: 0;
     left: 0;
@@ -80,9 +79,9 @@ body {
 }
 
 .alert-image{
-    height: 400px;
-    width: 400px;
-    background-color: black;
+    height: 600px;
+    width: 600px;
+   background-color: white;
     position: fixed;
     z-index: 2;
 }
@@ -94,4 +93,5 @@ body {
     position: absolute;
     top: 0px;
     right:0px;
+    z-index: 2;
 }
