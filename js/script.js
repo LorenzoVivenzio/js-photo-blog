@@ -18,9 +18,9 @@ axios
         const {title, url, date} = post;
 
         const printPosts = document.createElement("div")
-        printPosts.classList.add("col")
+        printPosts.classList.add("col-sm-12", "col-md-6", "col-lg-4" ,"pb-3")
         printPosts.innerHTML =
-        `<div class="card">
+          `<div class="card">
             <div class="pin-img">
                 <img src="./img/pin.svg" alt="">
             </div>
@@ -34,7 +34,6 @@ axios
         </div>`
 
         rowElem.appendChild(printPosts)
-        console.log(printPosts)
                 
     })
     

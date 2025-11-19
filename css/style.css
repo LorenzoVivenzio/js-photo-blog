@@ -27,30 +27,12 @@ body {
     font-size: 3rem;
 }
 
-.main-cards {
-    
-   height: 100%;
-}
 
-.container {
-    margin: 0 auto;
-    width: 70%;
-    
-}
 .d-flex{
     display: flex;
 }
-.row {
-    padding-top: 50px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.col {
-    width: 30%;
-    margin-bottom: 40px;
+[class ^= col-]:hover{
+    transform: rotate(20deg);
 }
 
 .card {
@@ -64,7 +46,6 @@ body {
     top: -17px;
     right: 45%;
 }
-
 
 .post-image img{
     height: 80%;
