@@ -1,32 +1,29 @@
-const container = document.querySelector(".container");
-const cardElem = document.querySelector(".card");
-const postImg = document.querySelector(".post-image")
-const dateELem = document.querySelector(".date");
-const descrElem = document.querySelector(".descrition");
 const rowElem = document.querySelector(".row");
 const alertElem = document.querySelector(".alert-background")
 const closeBtn = document.querySelector(".close")
-console.log(closeBtn)
+const progressBar = document.querySelector(".progress-bar")
+const loadElem = document.querySelector(".load")
 
+// loading
+let progress = 0;
+let intervalId;
 
-// console.log(container, cardElem, postImg, dateELem, descrElem)
+intervalId = setInterval(function () {
+    if (progress === 100) {
+        clearInterval(intervalId);
+        loadElem.classList.add("d-none")
+        axios
+            .get("https://lanciweb.github.io/demo/api/pictures/")
+            .then(function (resp) {
+                const postsApi = resp.data;
+                postsApi.forEach(function (post) {
+                    const { title, url, date } = post;
 
-axios
-    .get("https://lanciweb.github.io/demo/api/pictures/")
-    .then(function (resp) {
-
-        const postsApi = resp.data;
-
-
-        postsApi.forEach(function (post) {
-
-            const { title, url, date } = post;
-
-                        //  stampare i post 
-            const printPosts = document.createElement("div")
-            printPosts.classList.add("col-sm-12", "col-md-6", "col-lg-4", "pb-3")
-            printPosts.innerHTML =
-                `<div class="card" data-img="${url}">
+                    //  stampare i post 
+                    const printPosts = document.createElement("div")
+                    printPosts.classList.add("col-sm-12", "col-md-6", "col-lg-4", "pb-3")
+                    printPosts.innerHTML =
+                        `<div class="card" data-img="${url}">
                     <div class="pin-img">
                         <img src="./img/pin.svg" alt="">
                     </div>
@@ -39,37 +36,47 @@ axios
                     <div class="descrition text-family">${title}</div>
                 </div>`
 
-            rowElem.appendChild(printPosts)
+                    rowElem.appendChild(printPosts)
 
-                        // evento click
-            printPosts.addEventListener("click", function (event) {
+                    // evento click
+                    printPosts.addEventListener("click", function (event) {
 
-                console.log('card clicked');
+                        // console.log('card clicked');
 
-                const card = event.target.closest('.card');
+                        const card = event.target.closest('.card');
 
-                console.log(card.dataset);
-                
+                        // console.log(card.dataset);
+
                         //  stamp dell'overlay
-                alertElem.classList.remove("d-none");
+                        alertElem.classList.remove("d-none");
 
-                const alertOpen = document.createElement("div")
-                alertOpen.classList.add("alert-background")
-                alertOpen.innerHTML = `             
+                        const alertOpen = document.createElement("div")
+                        alertElem.classList.add("opacity-bg")
+                        alertOpen.classList.add("alert-background")
+                        alertOpen.innerHTML = `             
                     <div class="alert-image">
-                        <img src="${url} " alt="">
+                        <img src="${url}" alt="">
                     </div>`
 
-                alertElem.appendChild(alertOpen)
-                
+                        alertElem.appendChild(alertOpen)
+
+                    })
+                    // fine evento 
+
+                    closeBtn.addEventListener("click", function (event) {
+                        alertElem.classList.add("d-none")
+                    })
+                })
+
             })
-            // fine evento 
 
-            closeBtn.addEventListener("click", function(event){
+    } else {
+        progress++;
+        progressBar.style.width = progress + "%";
+        progressBar.innerHTML = progress;
+    }
+    console.log(progress)
+}, 100);
 
-                alertElem.classList.add("d-none")
-            })
-        })
 
 
-    })
