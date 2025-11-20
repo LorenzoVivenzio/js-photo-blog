@@ -3,6 +3,7 @@ const alertElem = document.querySelector(".alert-background")
 const closeBtn = document.querySelector(".close")
 const progressBar = document.querySelector(".progress-bar")
 const loadElem = document.querySelector(".load")
+const loadingText = document.querySelector("h3")
 
 // loading
 let progress = 0;
@@ -12,6 +13,7 @@ intervalId = setInterval(function () {
     if (progress === 100) {
         clearInterval(intervalId);
         loadElem.classList.add("d-none")
+        loadingText.classList.add("d-none")
         axios
             .get("https://lanciweb.github.io/demo/api/pictures/")
             .then(function (resp) {
@@ -35,7 +37,6 @@ intervalId = setInterval(function () {
                     </div>
                     <div class="descrition text-family">${title}</div>
                 </div>`
-
                     rowElem.appendChild(printPosts)
 
                     // evento click
@@ -75,8 +76,10 @@ intervalId = setInterval(function () {
         progressBar.style.width = progress + "%";
         progressBar.innerHTML = progress;
     }
-    
+
 }, 100);
+
+
 
 
 
