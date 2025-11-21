@@ -12,14 +12,16 @@ let intervalId;
 intervalId = setInterval(function () {
     if (progress === 100) {
         clearInterval(intervalId);
-        loadElem.classList.add("d-none")
-        loadingText.classList.add("d-none")
+        loadElem.classList.add("d-none") //barra di caricamento
+        loadingText.classList.add("d-none") //testo del caricamento
         axios
             .get("https://lanciweb.github.io/demo/api/pictures/")
             .then(function (resp) {
                 const postsApi = resp.data;
+
+                // ciclo forEach
                 postsApi.forEach(function (post) {
-                    const { title, url, date } = post;
+                    const { title, url, date } = post; //destructure
 
                     //  stampare i post 
                     const printPosts = document.createElement("div")
@@ -36,7 +38,7 @@ intervalId = setInterval(function () {
                         ${date}
                     </div>
                     <div class="descrition text-family">${title}</div>
-                </div>`
+                    </div>`
                     rowElem.appendChild(printPosts)
 
                     // evento click
@@ -55,15 +57,15 @@ intervalId = setInterval(function () {
                         alertElem.classList.add("opacity-bg")
                         alertOpen.classList.add("alert-background")
                         alertOpen.innerHTML = `             
-                    <div class="alert-image">
-                        <img src="${url}" alt="">
-                    </div>`
+                           <div class="alert-image">
+                             <img src="${url}" alt="">
+                           </div>`
 
                         alertElem.appendChild(alertOpen)
-
                     })
                     // fine evento 
 
+                    // button chiusura delle immagini
                     closeBtn.addEventListener("click", function (event) {
                         alertElem.classList.add("d-none")
                     })

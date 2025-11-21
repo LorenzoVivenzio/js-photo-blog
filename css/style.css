@@ -107,7 +107,6 @@ h3 {
 .alert-image {
     height: 600px;
     width: 600px;
-    background-color: white;
     position: fixed;
     z-index: 2;
 }
@@ -134,5 +133,69 @@ h3 {
 .progress {
     height: 40px;
     border-radius: 20px;
+
+}
+
+
+
+
+
+
+
+
+/* css responsive */
+
+@media screen and (max-width : 768px) {
+
+    .alert-image {
+        height: 400px;
+        width: 400px;
+        position: fixed;
+        z-index: 2;
+    }
+
+    .close {
+        top: 0;
+        left: 44%;
+    }
+
+}
+
+@media screen and (max-width : 1024px) {
+    .close{
+        left: 46%;
+    }
+}
+@media screen and (max-width : 768px) {
+
+    .alert-image {
+        height: 400px;
+        width: 400px;
+
+    }
+
+    .close {
+        top: 0;
+        left: 44%;
+    }
+
+}
+
+@media screen and (max-width : 425px) {
+    .header-cont h1{
+        font-size: 2rem;
+    }
+    .loading-text {
+        font-size: 1rem;
+    }
+    .alert-image {
+        height: 300px;
+        width: 300px;
+    }
+
+    .close {
+        top: 44px;
+        left: 38%;
+    }
 
 }
